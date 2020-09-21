@@ -1,0 +1,106 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    overflow: hidden;
+    cursor: none;
+}
+
+.full-width-module{
+    position: relative;
+    top: 0;
+    background-color: #000;
+}
+
+.custom-carousel{
+    height: 100%;
+    position: relative;
+    z-index:1;
+    transition: 0.3s all;
+    transform-origin: 0 0;
+    transform: rotate(0deg);
+}
+
+.carousel-photo-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: left;
+    padding: 0 50px;
+    z-index:2;
+    user-select: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.custom-cursor{
+    z-index: 3;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.6);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    color: rgba(255,255,255,.6);
+    font-weight: 100;
+}
+
+.custom-cursor > .fa-angle-left{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+}
+
+.custom-cursor > .fa-angle-right{
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+}
+
+.carousel-title{
+    position: relative;
+    z-index: 2;
+    font-size: 48px;
+    color: #fff;
+    font-weight: 999;
+    user-select: none;
+}
+
+.carousel-title > p:nth-child(1){
+    position: absolute;
+    margin: 40px 0 0 10%;
+}
+
+.carousel-title > p:nth-child(2){
+    position: absolute;
+    margin: 100px 0 0 10%;
+}
+
+.carousel-title > p:nth-child(3){
+    top: 0;
+    position: absolute;
+    right: 0;
+    margin: 45px 10% 0 0;
+    font-size: 16px;
+    color: rgba(255,255,255,.6);
+    font-weight: 300;
+}
+
+
+.carousel-info{
+    z-index: 2;
+    position: relative;
+    bottom: 0;
+    transform: translateY(-300%);
+    color: rgba(255,255,255,.6);
+    text-align: center;
+    user-select: none;
+}

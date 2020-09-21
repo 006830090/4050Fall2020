@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- style -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<!-- nav bar -->
+	<div class="top-nav-bar">
+		
+		<!-- search box -->
+		<div class="search-box">
+			<i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
+			<i class="fa fa-times" id="close-btn" onclick="closemenu()"></i>
+
+
+			<img src="images/logo.jpeg" alt="logo">
+			<input type="text" class="form-control">
+			<span class="input-group-text"><i class="fa fa-search"></i></span>
+		</div> <!-- end search box -->
+		
+		<!-- menu bar -->
+		<div class="menu-bar">
+			<ul>
+				<li><a href=""><i class="fa fa-shopping-basket"></i>Cart</a></li>
+				<li><a href="">Sign Up</a></li>
+				<li><a href="">Log In</a></li>
+			</ul>
+		</div><!-- end menu bar-->
+
+	</div> <!-- end nav bar -->
+
+	<!-- side bar -->
+	<section class="header">
+		<div class="side-menu" id="side-menu">
+			<ul>
+				<!-- On sale -->
+				<li>On Sale<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Contractor</li>
+						<li>Mechanic</li>
+						<li>Safety</li>
+					</ul>
+				</li> <!-- on sale end -->
+				
+				<!-- saw blades -->
+				<li>Saw Blades<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Circular Saw Blades</li>
+						<li>Reciprocating Saw Blades</li>
+						<li>Oscillating and Jigsaw Blades</li>
+					</ul>
+				</li> <!--saw blades end -->
+
+				<!-- bits -->
+				<li>Drill Bits<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Wood Drilling Bits</li>
+						<li>Metal Drilling Bits</li>
+						<li>Concrete Drilling Bits</li>
+					</ul>
+				</li> <!--bits end -->
+
+				<!-- safety -->
+				<li>Safety Items<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>General Safety</li>
+						<li>First Aid Kits and Fire Extinguishers</li>
+						<li>PPE</li>
+						<li>Misc.</li>
+					</ul>
+				</li> <!--safety end -->
+
+				<!-- cutoff -->
+				<li>Cutoff, Grinding, and Diamond Wheels<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Cutting and Grinding Wheels</li>
+						<li>Sanding Wheels Metal</li>
+						<li>Sanding Wheels Wood</li>
+						<li>Concrete and Diamond Wheels</li>
+					</ul>
+				</li> <!--cutoff end -->
+
+				<!--  chemicals -->
+				<li>Chemicals and Cleaners<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Oils and Lubricants</li>
+						<li>Cleaners</li>
+						<li>Misc.</li>
+					</ul>
+				</li> <!--chemicals end -->
+
+				<!-- Hand Tools -->
+				<li>Hand Tools<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Power Tools</li>
+						<li>Cordless Tools</li>
+						<li>Wrenches</li>
+						<li>Socket Sets</li>
+						<li>Extractors, Dies and Threaders</li>
+						<li>Williams Tools</li>
+					</ul>
+				</li> <!--hand end -->
+
+				<!-- Shop Tools -->
+				<li>Shop Tools<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Jacks and Hydraulic Equipment</li>
+						<li>Pneumatic Tools</li>
+						<li>Hose Reels and Vices</li>
+						<li>Misc</li>
+					</ul>
+				</li> <!--shop end -->
+
+				<!-- saw blades -->
+				<li>Expendables<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Tarps, Straps, and Ties</li>
+						<li>Shovels, Rakes and Brooms</li>
+						<li>Screwdrives and Nutdrivers</li>
+						<li>Tapes</li>
+						<li>Screws and Fasteners</li>
+						<li>Novelties</li>
+					</ul>
+				</li> <!--saw blades end -->
+
+				<!-- contact -->
+				<li>Contact<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Company</li>
+						<li>Salesman</li>
+					</ul>
+				</li><!-- contact end -->
+			</ul>
+		</div><!-- end side menu -->
+	</section><!-- end side bar -->
+
+	
+	<!-- slider -->
+	<section>
+	<div class="slider">
+		<div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
+  			<div class="carousel-inner">
+    			<div class="carousel-item active">
+      				<img src="images/intro_image_1.jpg" class="d-block w-100">
+    			</div>
+    			<div class="carousel-item">
+      				<img src="images/intro_image_2.jpg" class="d-block w-100">
+    			</div>
+    			<div class="carousel-item">
+      				<img src="images/intro_image_3.jpg" class="d-block w-100">
+    			</div>
+  			</div>
+  			<!-- indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#slider" data-slide-to="0" class="active"></li>
+		    <li data-target="#slider" data-slide-to="1"></li>
+		    <li data-target="#slider" data-slide-to="2"></li>
+		  </ol>  		
+
+		</div>
+	</div> <!-- end slider -->
+	</section>
+
+	<!-- featured -->
+	<section class="featured-categories">
+		<div class="container">
+			<div class="row">
+				<!-- item 1 -->
+				<div class="col-md-4">
+					<img src="images/carbide_holsaw.jpg">
+				</div>
+				<!-- item 2 -->
+				<div class="col-md-4">
+					<img src="images/bosch.jpg">
+				</div>
+				<!-- item 3 -->
+				<div class="col-md-4">
+					<img src="images/husqy.jpg">
+				</div>
+			</div>
+		</div>
+	</section><!-- end featured-->
+
+	<!-- on sale products -->
+	<section class="on-sale">
+		<div class="container">
+			<!-- header-->
+			<div class="title-box">
+				<h2>On Sale</h2>
+			</div>
+			<!-- products-->
+			<div class="row">
+
+				<!-- product 1 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/bosch_recip.jpeg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-half-o"></i>
+							<h3>Bosch Reciprocating Saw Blades</h3>
+							<h5>Request a Quote</h5>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+
+				<!-- product 2 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/freeall.jpg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+							<h3>Free All Penetrating Oil</h3>
+							<h5>Request a Quote</h5>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+
+				<!--product 3 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/wrap_glass.jpg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-0"></i>
+							<h3>Wrap Around Safety Glasses</h3>
+							<h5>Request a Quote</h5>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+
+				<!-- product 4 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/diegrind.jpeg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-alt"></i>
+							<h3>Buy a Box of Wheels</h3>
+							<h3>Get The Tool Free</h3>
+							<h5>Request a Quote</h5>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+			</div><!-- products end -->
+		</div> <!-- containter end -->
+	</section> <!-- on sale products end -->
+
+	<!-- new products -->
+	<section class="new-products">
+		<div class="container">
+			<!-- header-->
+			<div class="title-box">
+				<h2>New Arrivals</h2>
+			</div>
+			<!-- products-->
+			<div class="row">
+
+				<!-- product 1 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/cmt_pro.jpg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+							<h3>CMT Teflon Coated 7 1/4" 24t Circular Blade</h3>
+							<h5>Request a Quote</h5>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+
+				<!-- product 2 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/bosch_combo.jpg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+							<h3>Bosch 18vlt 4pc Cordless Tool Kit</h3>
+							<h5>Request a Quote</h5>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+
+				<!--product 3 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/cat.jpg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-0"></i>
+							<h3>Metal Cutting Diamond Wheels</h3>
+							<h5>Request a Quote</h5>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+
+				<!-- product 4 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/husqy_saw.jpg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-alt"></i>
+							<h3>Husqvarna K770 Gas Powered Saw Combo</h3>
+							<h5>Request a Quote</h5>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+			
+			</div><!-- products end -->
+		</div> <!-- containter end -->
+	</section><!-- new products end -->
+
+	<!---- webiste features ----->
+	<section class="website-features">
+		<div class="container">
+			<div class="row">
+				
+				<!-- satisfcation -->
+				<div class="col-md-3 feature-box">
+					<img src="images/satisfaction.png">
+					<div class="feature-text">
+						<p><b>100% Satisfaction Guarantee.</b> We Pride Ourselves In Customer Satisfaction</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+				<!-- shipping -->
+				<div class="col-md-3 feature-box">
+					<img src="images/shipping.png">
+					<div class="feature-text">
+						<p><b>Free Shipping</b> On Every Order Over $100</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+				<!-- returns -->
+				<div class="col-md-3 feature-box">
+					<img src="images/returns.png">
+					<div class="feature-text">
+						<p><b>Free Returns</b> On Qualified Items Withtin 30 Days</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+				<!-- 30 day -->
+				<div class="col-md-3 feature-box">
+					<img src="images/30day.png">
+					<div class="feature-text">
+						<p><b>30 Day Financing</b> Available On Qualified Accounts</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+			</div><!--- row end -->
+		</div><!-- containter end -->
+	</section><!--- website features end -->
+
+	<!-- footer -->
+	<section class="footer">
+		<div class="container text-center">
+			<div class="row">
+				
+				<!-- useful links -->
+				<div class="col-md-3">
+					<h1>Useful Links</h1>
+					<p>Privacy Policy</p>
+					<p>Return Policy</p>
+					<p>Terms of Use</p>
+				</div><!--- column end -->
+
+				<!-- copmpany links -->
+				<div class="col-md-3">
+					<h1>Company</h1>
+					<p>About Us</p>
+					<p>Contact Us</p>
+					<p>Affiliate</p>
+				</div><!--- column end -->
+
+				<!-- follow -->
+				<div class="col-md-3">
+					<h1>Follow Us On</h1>
+					<p><i class="fa fa-facebook-official"></i> Facebook</p>
+					<p><i class="fa fa-instagram"></i> Instagram</p>
+					<p><i class="fa fa-linkedin"></i> Linkedin</p>
+				</div><!--- column end -->
+
+				<!-- follow -->
+				<div class="col-md-3 footer-image">
+					<h1>Download App</h1>
+					<img src="images/appsoon.png">
+				</div><!--- column end -->
+
+			</div><!-- row end -->
+
+			<hr>
+			<p class="copyright">Website Made By Curtis Stephens. For Business Inqueries Contact rizerr@gmail.com</p>
+		</div><!-- container end -->
+	</section><!-- footer end -->
+
+
+	<!-- open and close side menu -->
+	<script>
+		function openmenu()
+		{
+			document.getElementById("side-menu").style.display="block";
+			document.getElementById("menu-btn").style.display="none";
+			document.getElementById("close-btn").style.display="block";
+		}
+		function closemenu()
+		{
+			document.getElementById("side-menu").style.display="none";
+			document.getElementById("menu-btn").style.display="block";
+			document.getElementById("close-btn").style.display="none";
+		}
+	</script> <!-- open ansd close side menu end -->
+</body>
+</html>
