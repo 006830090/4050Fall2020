@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- style -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<!-- nav bar -->
+	<div class="top-nav-bar">
+		
+		<!-- search box -->
+		<div class="search-box">
+			<i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
+			<i class="fa fa-times" id="close-btn" onclick="closemenu()"></i>
+
+
+			<img src="images/logo.jpeg" alt="logo">
+			<input type="text" class="form-control">
+			<span class="input-group-text"><i class="fa fa-search"></i></span>
+		</div> <!-- end search box -->
+		
+		<!-- menu bar -->
+		<div class="menu-bar">
+			<ul>
+				<li><a href=""><i class="fa fa-shopping-basket"></i>Cart</a></li>
+				<li><a href="">Contact</a></li>
+				<li><a href="">Account</a></li>
+			</ul>
+		</div><!-- end menu bar-->
+
+	</div> <!-- end nav bar -->
+
+	<!-- cart items -->
+	<div class="small-container cart-page">
+		<table>
+			<tr>
+				<th>   Product</th>
+				<th>Quantity    </th>
+			</tr>
+			<!-- item one -->
+			<tr>
+				<td>
+					<div class="cart-info">
+						<img src="images/bosch_recip.jpeg">
+						<div>
+							<p>Bosch Recip</p>
+							<br>
+							<a href="">Remove</a>
+						</div>
+					</div>
+				</td>
+				<td><input type="number" value="1"></td>
+			</tr>
+			<!-- item two -->
+			<tr>
+				<td>
+					<div class="cart-info">
+						<img src="images/bosch_recip.jpeg">
+						<div>
+							<p>Bosch Recip</p>
+							<br>
+							<a href="">Remove</a>
+						</div>
+					</div>
+				</td>
+				<td><input type="number" value="1"></td>
+			</tr>
+			<!-- item three -->
+			<tr>
+				<td>
+					<div class="cart-info">
+						<img src="images/bosch_recip.jpeg">
+						<div>
+							<p>Bosch Recip</p>
+							<br>
+							<a href="">Remove</a>
+						</div>
+					</div>
+				</td>
+				<td><input type="number" value="1"></td>
+			</tr>
+		</table>
+	</div>
+
+
+
+	<!-- footer -->
+	<section class="footer">
+		<div class="container text-center">
+			<div class="row">
+				
+				<!-- useful links -->
+				<div class="col-md-3">
+					<h1>Useful Links</h1>
+					<p>Privacy Policy</p>
+					<p>Return Policy</p>
+					<p>Terms of Use</p>
+				</div><!--- column end -->
+
+				<!-- copmpany links -->
+				<div class="col-md-3">
+					<h1>Company</h1>
+					<p>About Us</p>
+					<p>Contact Us</p>
+					<p>Affiliate</p>
+				</div><!--- column end -->
+
+				<!-- follow -->
+				<div class="col-md-3">
+					<h1>Follow Us On</h1>
+					<p><i class="fa fa-facebook-official"></i> Facebook</p>
+					<p><i class="fa fa-instagram"></i> Instagram</p>
+					<p><i class="fa fa-linkedin"></i> Linkedin</p>
+				</div><!--- column end -->
+
+				<!-- follow -->
+				<div class="col-md-3 footer-image">
+					<h1>Download App</h1>
+					<img src="images/appsoon.png">
+				</div><!--- column end -->
+
+			</div><!-- row end -->
+
+			<hr>
+			<p class="copyright">Website Made By Curtis Stephens. For Business Inqueries Contact rizerr@gmail.com</p>
+		</div><!-- container end -->
+	</section><!-- footer end -->
+
+
+
+</body>
+</html>
