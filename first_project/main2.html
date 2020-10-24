@@ -10,53 +10,20 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script src="https://kit.fontawesome.com/4f112d1706.js" crossorigin="anonymous"></script>
 
 	<!-- style -->
 	<link rel="stylesheet" href="css/style.css">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<!-- firebase -->
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
-	<!-- TODO: Add SDKs for Firebase products that you want to use -->
-	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
-	<script>
-	  // Your web app's Firebase configuration
-	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-	  var firebaseConfig = {
-	    apiKey: "AIzaSyDAgPd7xqatK-zmwJizsDAfW6x7_SkoE7w",
-	    authDomain: "leftcoast-4cfc2.firebaseapp.com",
-	    databaseURL: "https://leftcoast-4cfc2.firebaseio.com",
-	    projectId: "leftcoast-4cfc2",
-	    storageBucket: "leftcoast-4cfc2.appspot.com",
-	    messagingSenderId: "526978566494",
-	    appId: "1:526978566494:web:6e191cc2141f84c2c6e7cf",
-	    measurementId: "G-DPT355PHZF"
-	  };
-	  // Initialize Firebase
-	  firebase.initializeApp(firebaseConfig);
-	  firebase.analytics();
-	  const db = firebase.firestore();
-	  const auth = firebase.auth();
-	</script><!-- end firebase setup -->
-	<!--- java -->
-	<script src="app.js"></script>
-
-
 	<!-- nav bar -->
 	<div class="top-nav-bar">
 		
 		<!-- search box -->
 		<div class="search-box">
-
 			<i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
 			<i class="fa fa-times" id="close-btn" onclick="closemenu()"></i>
+
 
 			<a href="main.html"><img src="images/logo.jpeg" alt="logo"></a>
 			<input type="text" class="form-control">
@@ -66,122 +33,118 @@
 		<!-- menu bar -->
 		<div class="menu-bar">
 			<ul>
-				<li display="none" class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-				<li><a href="contact.html">Contact</a></li>
-				<li class="logged-out"><a href="account.html">Accounts</a></li>
-				<li class="logged-in"><a href="#" id="logout">Logout</a></li>
+				<li><a href=""><i class="fa fa-shopping-basket"></i>Cart</a></li>
+				<li><a href="">Contact</a></li>
+				<li><a href="account.html">Account</a></li>
+			</ul>
 		</div><!-- end menu bar-->
+
 	</div> <!-- end nav bar -->
-	<!-- logout button -->
-	<script>
-		$("#logout").click(function(){
-        firebase.auth().signOut().then(function() {
-        	loggedOut();
-      		}).catch(function(error) {
-        	// An error happened.
-      		});
-		});
-	</script>
 
-	<!-- nav side menu -->
+	<!-- side bar -->
 	<section class="header">
-	<div class="nav-side-menu" id="side-menu">
+		<div class="side-menu" id="side-menu">
+			<ul>
+				<!-- On sale -->
+				<li>On Sale<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Contractor</li>
+						<li>Mechanic</li>
+						<li>Safety</li>
+					</ul>
+				</li> <!-- on sale end -->
+				
+				<!-- saw blades -->
+				<li>Saw Blades<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Circular Saw Blades</li>
+						<li>Reciprocating Saw Blades</li>
+						<li>Oscillating and Jigsaw Blades</li>
+					</ul>
+				</li> <!--saw blades end -->
 
-    
-  
-        <div class="menu-list">
-  
-            <ul id="menu-content" >
+				<!-- bits -->
+				<li>Drill Bits<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Wood Drilling Bits</li>
+						<li>Metal Drilling Bits</li>
+						<li>Concrete Drilling Bits</li>
+					</ul>
+				</li> <!--bits end -->
 
-            	<li data-toggle="collapse" data-target="#service" class="collapsed">
-                  <a href="#"><i class="fa fa-hand-holding-heart fa-lg"></i> On Sale <span class="arrow"></span></a>
-                </li>  
-                <ul class="sub-menu collapse" id="service">
-                  <li>View Specials</li>
-                </ul>
+				<!-- safety -->
+				<li>Safety Items<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>General Safety</li>
+						<li>First Aid Kits and Fire Extinguishers</li>
+						<li>PPE</li>
+						<li>Misc.</li>
+					</ul>
+				</li> <!--safety end -->
 
-                <li data-toggle="collapse" data-target="#sawblades" class="collapsed">
-                  <a href="#"><i class="fa fa-fan fa-lg"></i> Saw Blades <span class="arrow"></span></a>
-                </li>  
-                <ul class="sub-menu collapse" id="sawblades">
-                  <a href="sawblades.html"><li>All Blades</li></a>
-                </ul>
+				<!-- cutoff -->
+				<li>Cutoff, Grinding, and Diamond Wheels<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Cutting and Grinding Wheels</li>
+						<li>Sanding Wheels Metal</li>
+						<li>Sanding Wheels Wood</li>
+						<li>Concrete and Diamond Wheels</li>
+					</ul>
+				</li> <!--cutoff end -->
 
+				<!--  chemicals -->
+				<li>Chemicals and Cleaners<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Oils and Lubricants</li>
+						<li>Cleaners</li>
+						<li>Misc.</li>
+					</ul>
+				</li> <!--chemicals end -->
 
-                <li data-toggle="collapse" data-target="#bits" class="collapsed">
-                  <a href="#"><i class="fa fa-dot-circle fa-lg"></i> Drill Bits <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="bits">
-                  <a href="wood_bits.html"><li>Wood Drilling Bits</li></a>
-                  <a href="metal_bits.html"><li>Metal Drilling Bits</li></a>
-                  <a href="concrete_bits.html"><li>Concrete Drilling Bits</li></a>
-                </ul>
+				<!-- Hand Tools -->
+				<li>Hand Tools<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Power Tools</li>
+						<li>Cordless Tools</li>
+						<li>Wrenches</li>
+						<li>Socket Sets</li>
+						<li>Extractors, Dies and Threaders</li>
+						<li>Williams Tools</li>
+					</ul>
+				</li> <!--hand end -->
 
-                <li data-toggle="collapse" data-target="#safety" class="collapsed">
-                  <a href="#"><i class="fa fa-hard-hat fa-lg"></i> Safety Items <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="safety">
-                  <a href="general_safety.html"><li>General Safety</li></a>
-                </ul>
+				<!-- Shop Tools -->
+				<li>Shop Tools<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Jacks and Hydraulic Equipment</li>
+						<li>Pneumatic Tools</li>
+						<li>Hose Reels and Vices</li>
+						<li>Misc</li>
+					</ul>
+				</li> <!--shop end -->
 
-                <li data-toggle="collapse" data-target="#wheel" class="collapsed">
-                  <a href="#"><i class="fa fa-dharmachakra fa-lg"></i> Abrasives<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="wheel">
-                  <a href="cutgrind.html"><li>Cutting & Grinding</li></a>
-                  <a href="sanding.html"><li>Sanding Products</li></a>
-                </ul>
+				<!-- saw blades -->
+				<li>Expendables<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Tarps, Straps, and Ties</li>
+						<li>Shovels, Rakes and Brooms</li>
+						<li>Screwdrives and Nutdrivers</li>
+						<li>Tapes</li>
+						<li>Screws and Fasteners</li>
+						<li>Novelties</li>
+					</ul>
+				</li> <!--saw blades end -->
 
-                <li data-toggle="collapse" data-target="#diamond" class="collapsed">
-                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond Wheels<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="diamond">
-                  <a href="diamond.html"><li>All Diamond Products</li></a>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#chem" class="collapsed">
-                  <a href="#"><i class="fa fa-oil-can fa-lg"></i> Chemicals <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="chem">
-                  <a href="chemicals.html"><li>All Chemicals & Accessories</li></a>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#handtools" class="collapsed">
-                  <a href="#"><i class="fa fa-wrench fa-lg"></i> Hand Tools <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="handtools">
-                  <li>Power Tools</li>
-                  <li>Cordless Tools</li>
-                  <li>Wrenches & Sockets</li>
-                  <li>Socket Sets</li>
-                  <li>Extractors & Threaders</li>
-                  <li>Williams Tools</li>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#shop" class="collapsed">
-                  <a href="#"><i class="fa fa-car fa-lg"></i> Shop Tools <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="shop">
-                  <li>Jacks and Hydraulic</li>
-                  <li>Pneumatic Tools</li>
-                  <li>Miscellaneous</li>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#expend" class="collapsed">
-                  <a href="#"><i class="fa fa-plus-square fa-lg"></i> Expendables <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="expend">
-                  <li>Tarps, Straps, and Ties</li>
-                  <li>Screwdrivers and Nutdrivers</li>
-                  <li>Tapes</li>
-                  <li>Screws and Fasteners</li>
-                </ul>
-
-            </ul>
-    	</div><!-- end menu -->
-
-	</div>
-	
+				<!-- contact -->
+				<li>Contact<i class="fa fa-angle-right"></i>
+					<ul>
+						<li>Company</li>
+						<li>Salesman</li>
+					</ul>
+				</li><!-- contact end -->
+			</ul>
+		</div><!-- end side menu -->
+	</section><!-- end side bar -->
 
 	
 	<!-- slider -->
@@ -265,7 +228,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-half-o"></i>
 							<h3>Bosch Reciprocating Saw Blades</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h5>Request a Quote</h5>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -294,7 +257,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 							<h3>Free All Penetrating Oil</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h5>Request a Quote</h5>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -323,7 +286,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-0"></i>
 							<h3>Wrap Around Safety Glasses</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h5>Request a Quote</h5>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -353,7 +316,7 @@
 						<i class="fa fa-star-alt"></i>
 							<h3>Buy a Box of Wheels</h3>
 							<h3>Get The Tool Free</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h5>Request a Quote</h5>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 			</div><!-- products end -->
@@ -394,8 +357,8 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
-							<h3>CMT Teflon Coated Circular Blades</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h3>CMT Teflon Coated 7 1/4" 24t Circular Blade</h3>
+							<h5>Request a Quote</h5>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -424,7 +387,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 							<h3>Bosch 18vlt 4pc Cordless Tool Kit</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h5>Request a Quote</h5>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -432,7 +395,7 @@
 				<div class="col-md-3">
 					<!-- product top -->
 					<div class="product-top">
-						<img src="images/cat_display.jpg">
+						<img src="images/cat.jpg">
 						<div class="overlay-right">
 							<button type="button" class="btn btn-secondary" title="Quick Shop">
 								<i class="fa fa-eye"></i>
@@ -453,7 +416,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-0"></i>
 							<h3>Metal Cutting Diamond Wheels</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h5>Request a Quote</h5>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -482,7 +445,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-alt"></i>
 							<h3>Husqvarna K770 Gas Powered Saw Combo</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h5>Request a Quote</h5>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 			
@@ -573,6 +536,7 @@
 		</div><!-- container end -->
 	</section><!-- footer end -->
 
+
 	<!-- open and close side menu -->
 	<script>
 		function openmenu()
@@ -588,10 +552,5 @@
 			document.getElementById("close-btn").style.display="none";
 		}
 	</script> <!-- open ansd close side menu end -->
-
-
-
-
-
 </body>
 </html>

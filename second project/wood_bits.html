@@ -18,37 +18,6 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<!-- firebase -->
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
-	<!-- TODO: Add SDKs for Firebase products that you want to use -->
-	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
-	<script>
-	  // Your web app's Firebase configuration
-	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-	  var firebaseConfig = {
-	    apiKey: "AIzaSyDAgPd7xqatK-zmwJizsDAfW6x7_SkoE7w",
-	    authDomain: "leftcoast-4cfc2.firebaseapp.com",
-	    databaseURL: "https://leftcoast-4cfc2.firebaseio.com",
-	    projectId: "leftcoast-4cfc2",
-	    storageBucket: "leftcoast-4cfc2.appspot.com",
-	    messagingSenderId: "526978566494",
-	    appId: "1:526978566494:web:6e191cc2141f84c2c6e7cf",
-	    measurementId: "G-DPT355PHZF"
-	  };
-	  // Initialize Firebase
-	  firebase.initializeApp(firebaseConfig);
-	  firebase.analytics();
-	  const db = firebase.firestore();
-	  const auth = firebase.auth();
-	</script><!-- end firebase setup -->
-	<!--- java -->
-	<script src="app.js"></script>
-
-
 	<!-- nav bar -->
 	<div class="top-nav-bar">
 		
@@ -66,22 +35,13 @@
 		<!-- menu bar -->
 		<div class="menu-bar">
 			<ul>
-				<li display="none" class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+				<li><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
 				<li><a href="contact.html">Contact</a></li>
-				<li class="logged-out"><a href="account.html">Accounts</a></li>
-				<li class="logged-in"><a href="#" id="logout">Logout</a></li>
+				<li><a href="account.html">Account</a></li>
+			</ul>
 		</div><!-- end menu bar-->
+
 	</div> <!-- end nav bar -->
-	<!-- logout button -->
-	<script>
-		$("#logout").click(function(){
-        firebase.auth().signOut().then(function() {
-        	loggedOut();
-      		}).catch(function(error) {
-        	// An error happened.
-      		});
-		});
-	</script>
 
 	<!-- nav side menu -->
 	<section class="header">
@@ -97,14 +57,18 @@
                   <a href="#"><i class="fa fa-hand-holding-heart fa-lg"></i> On Sale <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="service">
-                  <li>View Specials</li>
+                  <li>Contractor</li>
+                  <li>Mechanic</li>
+                  <li>Safety</li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#sawblades" class="collapsed">
                   <a href="#"><i class="fa fa-fan fa-lg"></i> Saw Blades <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="sawblades">
-                  <a href="sawblades.html"><li>All Blades</li></a>
+                  <li>Circular Saw Blades</li>
+                  <li>Reciprocating Saw Blades</li>
+                  <li>Oscillating and Jigsaw Blades</li>
                 </ul>
 
 
@@ -112,38 +76,36 @@
                   <a href="#"><i class="fa fa-dot-circle fa-lg"></i> Drill Bits <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="bits">
-                  <a href="wood_bits.html"><li>Wood Drilling Bits</li></a>
-                  <a href="metal_bits.html"><li>Metal Drilling Bits</li></a>
-                  <a href="concrete_bits.html"><li>Concrete Drilling Bits</li></a>
+                  <li>Wood Drilling Bits</li>
+                  <li>Metal Drilling Bits</li>
+                  <li>Concrete Drilling Bits</li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#safety" class="collapsed">
                   <a href="#"><i class="fa fa-hard-hat fa-lg"></i> Safety Items <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="safety">
-                  <a href="general_safety.html"><li>General Safety</li></a>
+                  <li>General Safety</li>
+                  <li>First Aid and Fire Extinguishers</li>
+                  <li>Personal Protection</li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#wheel" class="collapsed">
-                  <a href="#"><i class="fa fa-dharmachakra fa-lg"></i> Abrasives<span class="arrow"></span></a>
+                  <a href="#"><i class="fa fa-dharmachakra fa-lg"></i> Wheels <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="wheel">
-                  <a href="cutgrind.html"><li>Cutting & Grinding</li></a>
-                  <a href="sanding.html"><li>Sanding Products</li></a>
-                </ul>
-
-                <li data-toggle="collapse" data-target="#diamond" class="collapsed">
-                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond Wheels<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="diamond">
-                  <a href="diamond.html"><li>All Diamond Products</li></a>
+                  <li>Cutting and Grinding</li>
+                  <li>Sanding Wheels Metal</li>
+                  <li>Sanding Wheels Wood</li>
+                  <li>Concrete and Diamond Wheels</li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#chem" class="collapsed">
                   <a href="#"><i class="fa fa-oil-can fa-lg"></i> Chemicals <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="chem">
-                  <a href="chemicals.html"><li>All Chemicals & Accessories</li></a>
+                  <li>Oils and Lubricants</li>
+                  <li>Cleaners</li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#handtools" class="collapsed">
@@ -152,9 +114,9 @@
                 <ul class="sub-menu collapse" id="handtools">
                   <li>Power Tools</li>
                   <li>Cordless Tools</li>
-                  <li>Wrenches & Sockets</li>
+                  <li>Wrenches</li>
                   <li>Socket Sets</li>
-                  <li>Extractors & Threaders</li>
+                  <li>Extractors, Dies, and Threaders</li>
                   <li>Williams Tools</li>
                 </ul>
 
@@ -179,63 +141,14 @@
 
             </ul>
     	</div><!-- end menu -->
-
 	</div>
 	
-
-	
-	<!-- slider -->
-	<section>
-	<div class="slider">
-		<div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
-  			<div class="carousel-inner">
-    			<div class="carousel-item active">
-      				<img src="images/intro_image_1.jpg" class="d-block w-100">
-    			</div>
-    			<div class="carousel-item">
-      				<img src="images/intro_image_2.jpg" class="d-block w-100">
-    			</div>
-    			<div class="carousel-item">
-      				<img src="images/intro_image_3.jpg" class="d-block w-100">
-    			</div>
-  			</div>
-  			<!-- indicators -->
-		  <ol class="carousel-indicators">
-		    <li data-target="#slider" data-slide-to="0" class="active"></li>
-		    <li data-target="#slider" data-slide-to="1"></li>
-		    <li data-target="#slider" data-slide-to="2"></li>
-		  </ol>  		
-
-		</div>
-	</div> <!-- end slider -->
-	</section>
-
-	<!-- featured -->
-	<section class="featured-categories">
-		<div class="container">
-			<div class="row">
-				<!-- item 1 -->
-				<div class="col-md-4">
-					<img src="images/carbide_holsaw.jpg">
-				</div>
-				<!-- item 2 -->
-				<div class="col-md-4">
-					<img src="images/bosch.jpg">
-				</div>
-				<!-- item 3 -->
-				<div class="col-md-4">
-					<img src="images/husqy.jpg">
-				</div>
-			</div>
-		</div>
-	</section><!-- end featured-->
-
 	<!-- on sale products -->
 	<section class="on-sale">
 		<div class="container">
 			<!-- header-->
-			<div class="title-box">
-				<h2>On Sale</h2>
+			<div class="title-box-2">
+				<h2>Wood Drilling Bits</h2>
 			</div>
 			<!-- products-->
 			<div class="row">
@@ -244,7 +157,7 @@
 				<div class="col-md-3">
 					<!-- product top -->
 					<div class="product-top">
-						<img src="images/bosch_recip.jpeg">
+						<img src="images/daredevil_display.jpg">
 						<div class="overlay-right">
 							<button type="button" class="btn btn-secondary" title="Quick Shop">
 								<i class="fa fa-eye"></i>
@@ -264,8 +177,8 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-half-o"></i>
-							<h3>Bosch Reciprocating Saw Blades</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h3>Bosch Daredevil Spade Bits</h3>
+							<a href="daredevil.html"><button type="button" class="btn btn-outline-danger">View</button></a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -273,7 +186,7 @@
 				<div class="col-md-3">
 					<!-- product top -->
 					<div class="product-top">
-						<img src="images/freeall.jpg">
+						<img src="images/spade_display.jpg">
 						<div class="overlay-right">
 							<button type="button" class="btn btn-secondary" title="Quick Shop">
 								<i class="fa fa-eye"></i>
@@ -291,9 +204,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-							<h3>Free All Penetrating Oil</h3>
+							<h3>Spade Bits</h3>
 							<button type="button" class="btn btn-outline-danger">View</button>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
@@ -302,7 +213,34 @@
 				<div class="col-md-3">
 					<!-- product top -->
 					<div class="product-top">
-						<img src="images/wrap_glass.jpg">
+						<img src="images/auger_display.jpg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+							<h3>Single Spur Auger Bits</h3>
+							<button type="button" class="btn btn-outline-danger">View</button>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+
+				<!-- product 4 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/nailkiller_display.jpg">
 						<div class="overlay-right">
 							<button type="button" class="btn btn-secondary" title="Quick Shop">
 								<i class="fa fa-eye"></i>
@@ -321,17 +259,17 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
-						<i class="fa fa-star-0"></i>
-							<h3>Wrap Around Safety Glasses</h3>
+						<i class="fa fa-star"></i>
+							<h3>Bosch Nail Killer Auger Bits</h3>
 							<button type="button" class="btn btn-outline-danger">View</button>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
-				<!-- product 4 -->
+				<!-- product 5 -->
 				<div class="col-md-3">
 					<!-- product top -->
 					<div class="product-top">
-						<img src="images/diegrind.jpeg">
+						<img src="images/bellhang_display.jpg">
 						<div class="overlay-right">
 							<button type="button" class="btn btn-secondary" title="Quick Shop">
 								<i class="fa fa-eye"></i>
@@ -351,144 +289,43 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-alt"></i>
-							<h3>Buy a Box of Wheels</h3>
-							<h3>Get The Tool Free</h3>
+							<h3>Bellhanger Bits</h3>
 							<button type="button" class="btn btn-outline-danger">View</button>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
+
+				<!-- product 6 -->
+				<div class="col-md-3">
+					<!-- product top -->
+					<div class="product-top">
+						<img src="images/forstner_display.jpg">
+						<div class="overlay-right">
+							<button type="button" class="btn btn-secondary" title="Quick Shop">
+								<i class="fa fa-eye"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+								<i class="fa fa-heart-o"></i>
+							</button>
+							<button type="button" class="btn btn-secondary" title="Add to Cart">
+								<i class="fa fa-shopping-cart"></i>
+							</button>
+						</div>
+					</div><!-- product top end -->
+					<!-- product bottom -->
+					<div class="product-bottom text-center">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+							<h3>Forstner Bits</h3>
+							<button type="button" class="btn btn-outline-danger">View</button>
+					</div> <!-- product bottom end -->
+				</div> <!-- column end -->
+
 			</div><!-- products end -->
 		</div> <!-- containter end -->
 	</section> <!-- on sale products end -->
 
-	<!-- new products -->
-	<section class="new-products">
-		<div class="container">
-			<!-- header-->
-			<div class="title-box">
-				<h2>New Arrivals</h2>
-			</div>
-			<!-- products-->
-			<div class="row">
 
-				<!-- product 1 -->
-				<div class="col-md-3">
-					<!-- product top -->
-					<div class="product-top">
-						<img src="images/cmt_pro.jpg">
-						<div class="overlay-right">
-							<button type="button" class="btn btn-secondary" title="Quick Shop">
-								<i class="fa fa-eye"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
-								<i class="fa fa-heart-o"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Cart">
-								<i class="fa fa-shopping-cart"></i>
-							</button>
-						</div>
-					</div><!-- product top end -->
-					<!-- product bottom -->
-					<div class="product-bottom text-center">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-							<h3>CMT Teflon Coated Circular Blades</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
-					</div> <!-- product bottom end -->
-				</div> <!-- column end -->
-
-				<!-- product 2 -->
-				<div class="col-md-3">
-					<!-- product top -->
-					<div class="product-top">
-						<img src="images/bosch_combo.jpg">
-						<div class="overlay-right">
-							<button type="button" class="btn btn-secondary" title="Quick Shop">
-								<i class="fa fa-eye"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
-								<i class="fa fa-heart-o"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Cart">
-								<i class="fa fa-shopping-cart"></i>
-							</button>
-						</div>
-					</div><!-- product top end -->
-					<!-- product bottom -->
-					<div class="product-bottom text-center">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-							<h3>Bosch 18vlt 4pc Cordless Tool Kit</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
-					</div> <!-- product bottom end -->
-				</div> <!-- column end -->
-
-				<!--product 3 -->
-				<div class="col-md-3">
-					<!-- product top -->
-					<div class="product-top">
-						<img src="images/cat_display.jpg">
-						<div class="overlay-right">
-							<button type="button" class="btn btn-secondary" title="Quick Shop">
-								<i class="fa fa-eye"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
-								<i class="fa fa-heart-o"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Cart">
-								<i class="fa fa-shopping-cart"></i>
-							</button>
-						</div>
-					</div><!-- product top end -->
-					<!-- product bottom -->
-					<div class="product-bottom text-center">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-0"></i>
-							<h3>Metal Cutting Diamond Wheels</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
-					</div> <!-- product bottom end -->
-				</div> <!-- column end -->
-
-				<!-- product 4 -->
-				<div class="col-md-3">
-					<!-- product top -->
-					<div class="product-top">
-						<img src="images/husqy_saw.jpg">
-						<div class="overlay-right">
-							<button type="button" class="btn btn-secondary" title="Quick Shop">
-								<i class="fa fa-eye"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
-								<i class="fa fa-heart-o"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Cart">
-								<i class="fa fa-shopping-cart"></i>
-							</button>
-						</div>
-					</div><!-- product top end -->
-					<!-- product bottom -->
-					<div class="product-bottom text-center">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-alt"></i>
-							<h3>Husqvarna K770 Gas Powered Saw Combo</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
-					</div> <!-- product bottom end -->
-				</div> <!-- column end -->
-			
-			</div><!-- products end -->
-		</div> <!-- containter end -->
-	</section><!-- new products end -->
 
 	<!---- webiste features ----->
 	<section class="website-features">
@@ -588,8 +425,6 @@
 			document.getElementById("close-btn").style.display="none";
 		}
 	</script> <!-- open ansd close side menu end -->
-
-
 
 
 

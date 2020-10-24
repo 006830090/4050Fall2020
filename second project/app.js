@@ -1,11 +1,22 @@
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".account-container");
+const loggedOutLinks = document.querySelectorAll('.logged-out');
+const loggedInLinks = document.querySelectorAll('.logged-in');
 
-sign_up_btn.addEventListener("click", () => {
-  container.classList.add("sign-up-mode");
-});
+const setupUI = (user) => {
+	if (user) {
+		loggedInLinks.forEach(item => item.style.display = 'block');
+		loggedOutLinks.forEach(item => item.style.display = 'none');
+	} else {
+		loggedInLinks.forEach(item => item.style.display = 'none');
+		loggedOutLinks.forEach(item => item.style.display = 'block');
+	}
+}
 
-sign_in_btn.addEventListener("click", () => {
-  container.classList.remove("sign-up-mode");
-});
+
+
+
+
+
+
+
+
+
