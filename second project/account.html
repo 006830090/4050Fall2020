@@ -63,7 +63,7 @@
 						<i class="fa fa-lock"></i>
 						<input type="text" placeholder="Password" id="userPassword">
 					</div>
-					<button class="btn solid" id="sign-in-button">Sign In</button>
+					<button class="btn solid" id="signin-button">Sign In</button>
 				</form>
 
 				<!-- sign up -->
@@ -91,7 +91,7 @@
 					</div>
 
 
-					<button class="btn solid" id="sign-up-button">Sign Up</button>
+					<button class="btn solid" id="signup-button">Sign Up</button>
 				</form>
 			</div>
 		</div>
@@ -135,14 +135,14 @@
 	<script src="account.js"></script>
 	<script>
 		//listeners
-		$("#sign-up-button").click(function(){
+		$("#signup-button").click(function(){
 	    	var email = $("#newEmail").val();
 	      	var password = $("#newPassword").val();
 	      	var name = $("#newCompany").val();
 	      	var number = $("#newNumber").val();
 	      	SignUp(email,password, name, number);
 	   	});
-	   	$("#sign-in-button").click(function(){
+	   	$("#signin-button").click(function(){
 	    	var email = $("#userEmail").val();
 	      	var password = $("#userPassword").val();
 	      	SignIn(email,password);

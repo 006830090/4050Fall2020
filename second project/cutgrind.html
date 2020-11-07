@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home Page</title>
+	<title>Cut Grind</title>
 
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -18,30 +18,64 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<!-- nav bar -->
-	<div class="top-nav-bar">
-		
-		<!-- search box -->
-		<div class="search-box">
+	<!-- firebase -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  var firebaseConfig = {
+	    apiKey: "AIzaSyDAgPd7xqatK-zmwJizsDAfW6x7_SkoE7w",
+	    authDomain: "leftcoast-4cfc2.firebaseapp.com",
+	    databaseURL: "https://leftcoast-4cfc2.firebaseio.com",
+	    projectId: "leftcoast-4cfc2",
+	    storageBucket: "leftcoast-4cfc2.appspot.com",
+	    messagingSenderId: "526978566494",
+	    appId: "1:526978566494:web:6e191cc2141f84c2c6e7cf",
+	    measurementId: "G-DPT355PHZF"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	  const db = firebase.firestore();
+	  const auth = firebase.auth();
+	</script><!-- end firebase setup -->
 
-			<i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
-			<i class="fa fa-times" id="close-btn" onclick="closemenu()"></i>
+	<header>
+		<a href="main.html" class="logo"><img src="images/logo.jpeg"></a>
+		<ul>
+			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li class="logged-out"><a href="account.html">Accounts</a></li>
+			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
+			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
+			<li><i class="fa fa-times" id="close-btn" onclick="closemenu()"></i></li>
+		</ul>
+	</header>
+	<section class="banner"></section>
+	<script type="text/javascript">
+		window.addEventListener("scroll", function(){
+			var header = document.querySelector("header");
+			header.classList.toggle("sticky", window.scrollY > 0);
+		})
+	</script>
 
-			<a href="main.html"><img src="images/logo.jpeg" alt="logo"></a>
-			<input type="text" class="form-control">
-			<span class="input-group-text"><i class="fa fa-search"></i></span>
-		</div> <!-- end search box -->
-		
-		<!-- menu bar -->
-		<div class="menu-bar">
-			<ul>
-				<li><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-				<li><a href="contact.html">Contact</a></li>
-				<li><a href="account.html">Account</a></li>
-			</ul>
-		</div><!-- end menu bar-->
 
-	</div> <!-- end nav bar -->
+	<!-- logout button -->
+	<script>
+		$("#logout").click(function(){
+        firebase.auth().signOut().then(function() {
+        	loggedOut();
+      		}).catch(function(error) {
+        	// An error happened.
+      		});
+		});
+	</script>
 
 	<!-- nav side menu -->
 	<section class="header">
@@ -57,18 +91,14 @@
                   <a href="#"><i class="fa fa-hand-holding-heart fa-lg"></i> On Sale <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="service">
-                  <li>Contractor</li>
-                  <li>Mechanic</li>
-                  <li>Safety</li>
+                  <li>View Specials</li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#sawblades" class="collapsed">
                   <a href="#"><i class="fa fa-fan fa-lg"></i> Saw Blades <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="sawblades">
-                  <li>Circular Saw Blades</li>
-                  <li>Reciprocating Saw Blades</li>
-                  <li>Oscillating and Jigsaw Blades</li>
+                  <li><a href="sawblades.html">All Blades</a></li>
                 </ul>
 
 
@@ -76,71 +106,82 @@
                   <a href="#"><i class="fa fa-dot-circle fa-lg"></i> Drill Bits <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="bits">
-                  <li>Wood Drilling Bits</li>
-                  <li>Metal Drilling Bits</li>
-                  <li>Concrete Drilling Bits</li>
+                  <li><a href="wood_bits.html">Wood Drilling Bits</a></li>
+                  <li><a href="metal_bits.html">Metal Drilling Bits</a></li>
+                  <li><a href="concrete_bits.html">Concrete Drilling Bits</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#safety" class="collapsed">
                   <a href="#"><i class="fa fa-hard-hat fa-lg"></i> Safety Items <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="safety">
-                  <li>General Safety</li>
-                  <li>First Aid and Fire Extinguishers</li>
-                  <li>Personal Protection</li>
+                  <li><a href="general_safety.html">General Safety</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#electrical" class="collapsed">
+                  <a href="#"><i class="fa fa-plug fa-lg"></i> Electrical <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="electrical">
+                  <li><a href="cords.html">Cords & Lights</a></li>
+                  <li><a href="holesaw.html">Holesaws & Wingnuts</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#wheel" class="collapsed">
-                  <a href="#"><i class="fa fa-dharmachakra fa-lg"></i> Wheels <span class="arrow"></span></a>
+                  <a href="#"><i class="fa fa-dharmachakra fa-lg"></i> Abrasives<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="wheel">
-                  <li>Cutting and Grinding</li>
-                  <li>Sanding Wheels Metal</li>
-                  <li>Sanding Wheels Wood</li>
-                  <li>Concrete and Diamond Wheels</li>
+                  <li><a href="cutgrind.html">Cutting & Grinding</a></li>
+                  <li><a href="sanding.html">Sanding Products</a></li>
+
+                </ul>
+
+                <li data-toggle="collapse" data-target="#diamond" class="collapsed">
+                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond Wheels<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="diamond">
+                  <li><a href="diamond.html">All Diamond Products</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#chem" class="collapsed">
                   <a href="#"><i class="fa fa-oil-can fa-lg"></i> Chemicals <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="chem">
-                  <li>Oils and Lubricants</li>
-                  <li>Cleaners</li>
+                  <li><a href="chemicals.html">All Chemicals & Accessories</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#handtools" class="collapsed">
                   <a href="#"><i class="fa fa-wrench fa-lg"></i> Hand Tools <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="handtools">
-                  <li>Power Tools</li>
-                  <li>Cordless Tools</li>
-                  <li>Wrenches</li>
-                  <li>Socket Sets</li>
-                  <li>Extractors, Dies, and Threaders</li>
-                  <li>Williams Tools</li>
+                  <li><a href="powertools.html">Cordless & Power Tools</a></li>
+                  <li><a href="wrenches.html">Wrenches</a></li>
+                  <li><a href="sockets.html">Sockets</a></li>
+                  <li><a href="threading.html">Extractors & Threaders</a></li>
+                  <li><a href="pliers.html">Pliers & Clamps</a></li>
+                  <li><a href="williams.html">Williams Tools</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#shop" class="collapsed">
                   <a href="#"><i class="fa fa-car fa-lg"></i> Shop Tools <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="shop">
-                  <li>Jacks and Hydraulic</li>
-                  <li>Pneumatic Tools</li>
-                  <li>Miscellaneous</li>
+                  <li><a href="hydraulic.html">Jacks and Hydraulic</a></li>
+                  <li><a href="pneumatic.html">Pneumatic Tools</a></li>
+                  <li><a href="shoptools.html">Miscellaneous</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#expend" class="collapsed">
                   <a href="#"><i class="fa fa-plus-square fa-lg"></i> Expendables <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="expend">
-                  <li>Tarps, Straps, and Ties</li>
-                  <li>Screwdrivers and Nutdrivers</li>
-                  <li>Tapes</li>
-                  <li>Screws and Fasteners</li>
+                  <li><a href="straps.html">Tarps, Straps, and Ties</a></li>
+                  <li><a href="screwdrivers.html">Screwdrivers and Nutdrivers</a></li>
+                  <li><a href="tape.html">Tapes</a></li>
                 </ul>
 
             </ul>
     	</div><!-- end menu -->
+
 	</div>
 	
 	<!-- on sale products -->
@@ -464,7 +505,7 @@
 			</div><!-- row end -->
 
 			<hr>
-			<p class="copyright">Website Made By Curtis Stephens. For Business Inqueries Contact rizerr@gmail.com</p>
+			<p class="copyright">Website Created By Curtis Stephens. For Business Inqueries Contact rizerr@gmail.com</p>
 		</div><!-- container end -->
 	</section><!-- footer end -->
 
@@ -483,6 +524,9 @@
 			document.getElementById("close-btn").style.display="none";
 		}
 	</script> <!-- open ansd close side menu end -->
+		<!--- java -->
+	<script src="app.js"></script>
+	<script src="auth.js"></script>
 
 
 

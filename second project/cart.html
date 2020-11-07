@@ -10,22 +10,52 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/4f112d1706.js" crossorigin="anonymous"></script>
 
 	<!-- style -->
 	<link rel="stylesheet" href="css/style.css">
+
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+	<!-- firebase -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  var firebaseConfig = {
+	    apiKey: "AIzaSyDAgPd7xqatK-zmwJizsDAfW6x7_SkoE7w",
+	    authDomain: "leftcoast-4cfc2.firebaseapp.com",
+	    databaseURL: "https://leftcoast-4cfc2.firebaseio.com",
+	    projectId: "leftcoast-4cfc2",
+	    storageBucket: "leftcoast-4cfc2.appspot.com",
+	    messagingSenderId: "526978566494",
+	    appId: "1:526978566494:web:6e191cc2141f84c2c6e7cf",
+	    measurementId: "G-DPT355PHZF"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	  const db = firebase.firestore();
+	  const auth = firebase.auth();
+	</script><!-- end firebase setup -->
+
 	<!-- nav bar -->
 	<div class="top-nav-bar">
 		
 		<!-- search box -->
 		<div class="search-box">
+
 			<i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
 			<i class="fa fa-times" id="close-btn" onclick="closemenu()"></i>
 
-
-			<img src="images/logo.jpeg" alt="logo">
+			<a href="main.html"><img src="images/logo.jpeg" alt="logo"></a>
 			<input type="text" class="form-control">
 			<span class="input-group-text"><i class="fa fa-search"></i></span>
 		</div> <!-- end search box -->
@@ -33,13 +63,22 @@
 		<!-- menu bar -->
 		<div class="menu-bar">
 			<ul>
-				<li><a href=""><i class="fa fa-shopping-basket"></i>Cart</a></li>
-				<li><a href="">Contact</a></li>
-				<li><a href="">Account</a></li>
-			</ul>
+				<li display="none" class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li class="logged-out"><a href="account.html">Accounts</a></li>
+				<li class="logged-in"><a href="#" id="logout">Logout</a></li>
 		</div><!-- end menu bar-->
-
 	</div> <!-- end nav bar -->
+	<!-- logout button -->
+	<script>
+		$("#logout").click(function(){
+        firebase.auth().signOut().then(function() {
+        	loggedOut();
+      		}).catch(function(error) {
+        	// An error happened.
+      		});
+		});
+	</script>
 
 	<!-- cart items -->
 	<div class="small-container cart-page">
@@ -95,6 +134,48 @@
 
 
 
+	<!---- webiste features ----->
+	<section class="website-features">
+		<br>
+		<div class="container">
+			<div class="row">
+				
+				<!-- satisfcation -->
+				<div class="col-md-3 feature-box">
+					<img src="images/satisfaction.png">
+					<div class="feature-text">
+						<p><b>100% Satisfaction Guarantee.</b> We Pride Ourselves In Customer Satisfaction</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+				<!-- shipping -->
+				<div class="col-md-3 feature-box">
+					<img src="images/shipping.png">
+					<div class="feature-text">
+						<p><b>Free Shipping</b> On Every Order Over $100</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+				<!-- returns -->
+				<div class="col-md-3 feature-box">
+					<img src="images/returns.png">
+					<div class="feature-text">
+						<p><b>Free Returns</b> On Qualified Items Withtin 30 Days</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+				<!-- 30 day -->
+				<div class="col-md-3 feature-box">
+					<img src="images/30day.png">
+					<div class="feature-text">
+						<p><b>30 Day Financing</b> Available On Qualified Accounts</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+			</div><!--- row end -->
+		</div><!-- containter end -->
+	</section><!--- website features end -->
+
 	<!-- footer -->
 	<section class="footer">
 		<div class="container text-center">
@@ -136,6 +217,27 @@
 			<p class="copyright">Website Made By Curtis Stephens. For Business Inqueries Contact rizerr@gmail.com</p>
 		</div><!-- container end -->
 	</section><!-- footer end -->
+
+	<!-- open and close side menu -->
+	<script>
+		function openmenu()
+		{
+			document.getElementById("side-menu").style.display="block";
+			document.getElementById("menu-btn").style.display="none";
+			document.getElementById("close-btn").style.display="block";
+		}
+		function closemenu()
+		{
+			document.getElementById("side-menu").style.display="none";
+			document.getElementById("menu-btn").style.display="block";
+			document.getElementById("close-btn").style.display="none";
+		}
+	</script> <!-- open ansd close side menu end -->
+	<!--- java -->
+	<script src="app.js"></script>
+	<script src="auth.js"></script>
+
+
 
 
 
