@@ -11,10 +11,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script src="https://kit.fontawesome.com/4f112d1706.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 	<!-- style -->
 	<link rel="stylesheet" href="../css/style.css">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -44,6 +45,7 @@
 	  firebase.analytics();
 	  const db = firebase.firestore();
 	  const auth = firebase.auth();
+
 	</script><!-- end firebase setup -->
 
 	<header>
@@ -89,7 +91,7 @@
                   <a href="#"><i class="fa fa-hand-holding-heart fa-lg"></i> On Sale <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="service">
-                  <li>View Specials</li>
+                  <li><a href="../specials.html">View Specials</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#sawblades" class="collapsed">
@@ -222,10 +224,9 @@
 					<p><b>Availability:</b> In Stock</p>
 					<p><b>Condition:</b> New</p>
 					<p><b>Brand:</b> Minnesota Twist</p>
-					<label>Quantity: </label>
+					<p class="logged-out"><b>Log In Or Sign Up Today!</b><br>Click The Accounts Tab To Get Started!</p>
 
-					<input type="text" value: 1>
-					<button type="button" class="btn btn-primary">Add to Cart</button>
+					<button type="button" value="Black and Gold Bits to 1/2" id="addCart" class="logged-in btn btn-primary">Add to Cart</button>
 
 				</div><!-- column end -->
 			</div><!-- end row -->
@@ -329,6 +330,23 @@
 
 	<!-- open and close side menu -->
 	<script>
+	const itemAdd = document.querySelector("#addCart");
+
+
+	itemAdd.addEventListener("click", function() {
+	  	const itemToSave = itemAdd.value;
+	  	var user = firebase.auth().currentUser;
+	  	var image = "blackgoldHalf_display.jpg";
+	  	console.log(itemToSave);
+		db.collection('users').doc(user.uid).collection('cart').add({
+  			name: itemToSave,
+  			image: image
+		});
+		Swal.fire('Item Was Added To The Cart!');
+	  });
+
+
+
 		function openmenu()
 		{
 			document.getElementById("side-menu").style.display="block";
@@ -345,6 +363,7 @@
 	<!--- java -->
 	<script src="../app.js"></script>
 	<script src="../auth.js"></script>
+
 
 
 

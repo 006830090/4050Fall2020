@@ -9,14 +9,39 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-//auth state change
-firebase.auth().onAuthStateChanged(user =>{
-  	if (user) {
-  		console.log('User Logged In: ', user);
-  		window.location = 'main.html';
-  	}
-  	else{
-  		console.log('User Logged Out');
-  	}
+// signup
+const signupForm = document.querySelector('#sign-up-form');
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  // get user info
+  const email = signupForm['newEmail'].value;
+  const password = signupForm['newPassword'].value;
+
+  // sign up the user & add firestore data
+  auth.createUserWithEmailAndPassword(email, password).then(cred => {
+    return db.collection('users').doc(cred.user.uid).set({
+      company: signupForm['newCompany'].value,
+      number: signupForm['newNumber'].value
+    });
+  }).then(() => {
+  	window.location = 'main.html';
+  });
+});
+
+// login
+const loginForm = document.querySelector('#sign-in-form');
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  // get user info
+  const email = loginForm['userEmail'].value;
+  const password = loginForm['userPassword'].value;
+
+  // log the user in
+  auth.signInWithEmailAndPassword(email, password).then((cred) => {
+    window.location = 'main.html';
+  });
+
 });
 

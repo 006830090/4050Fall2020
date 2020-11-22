@@ -46,29 +46,26 @@
 	  const auth = firebase.auth();
 	</script><!-- end firebase setup -->
 
-	<!-- nav bar -->
-	<div class="top-nav-bar">
-		
-		<!-- search box -->
-		<div class="search-box">
+	<header>
+		<a href="main.html" class="logo"><img src="images/logo.jpeg"></a>
+		<ul>
+			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li class="logged-out"><a href="account.html">Accounts</a></li>
+			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
+			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
+			<li><i class="fa fa-times" id="close-btn" onclick="closemenu()"></i></li>
+		</ul>
+	</header>
+	<section class="banner"></section>
+	<script type="text/javascript">
+		window.addEventListener("scroll", function(){
+			var header = document.querySelector("header");
+			header.classList.toggle("sticky", window.scrollY > 0);
+		})
+	</script>
 
-			<i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
-			<i class="fa fa-times" id="close-btn" onclick="closemenu()"></i>
 
-			<a href="main.html"><img src="images/logo.jpeg" alt="logo"></a>
-			<input type="text" class="form-control">
-			<span class="input-group-text"><i class="fa fa-search"></i></span>
-		</div> <!-- end search box -->
-		
-		<!-- menu bar -->
-		<div class="menu-bar">
-			<ul>
-				<li display="none" class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-				<li><a href="contact.html">Contact</a></li>
-				<li class="logged-out"><a href="account.html">Accounts</a></li>
-				<li class="logged-in"><a href="#" id="logout">Logout</a></li>
-		</div><!-- end menu bar-->
-	</div> <!-- end nav bar -->
 	<!-- logout button -->
 	<script>
 		$("#logout").click(function(){
@@ -136,7 +133,6 @@
 
 	<!---- webiste features ----->
 	<section class="website-features">
-		<br>
 		<div class="container">
 			<div class="row">
 				
@@ -214,12 +210,27 @@
 			</div><!-- row end -->
 
 			<hr>
-			<p class="copyright">Website Made By Curtis Stephens. For Business Inqueries Contact rizerr@gmail.com</p>
+			<p class="copyright">Website Created By Curtis Stephens. For Business Inqueries Contact rizerr@gmail.com</p>
 		</div><!-- container end -->
+
 	</section><!-- footer end -->
 
 	<!-- open and close side menu -->
 	<script>
+		const buttons = document.querySelectorAll('viewButton');
+		buttons.forEach(btn => {
+			btn.addEventListener('click', function(e) {
+
+				let x = e.clientX - e.target.offsetLeft;
+				let y = e.clientY - e.target.offsetTop;
+
+				let ripples = document.createElement('span');
+				ripples.style.left = x + 'px';
+				ripples.style.top = y + 'px';
+				btn.appendChild(ripples);
+			})
+		})
+
 		function openmenu()
 		{
 			document.getElementById("side-menu").style.display="block";

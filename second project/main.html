@@ -80,9 +80,6 @@
 	<!-- nav side menu -->
 	<section class="header">
 	<div class="nav-side-menu" id="side-menu">
-
-    
-  
         <div class="menu-list">
   
             <ul id="menu-content" >
@@ -91,7 +88,7 @@
                   <a href="#"><i class="fa fa-hand-holding-heart fa-lg"></i> On Sale <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="service">
-                  <li>View Specials</li>
+                  <li><a href="specials.html">View Specials</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#sawblades" class="collapsed">
@@ -182,9 +179,10 @@
             </ul>
     	</div><!-- end menu -->
 	</div>
+</section>
 	
 	<!-- slider -->
-	<section>
+
 	<div class="slider">
 		<div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
   			<div class="carousel-inner">
@@ -264,7 +262,8 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-half-o"></i>
 							<h3>Bosch Reciprocating Saw Blades</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a class="viewButton" href="">View</a>
+							
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -293,7 +292,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 							<h3>Free All Penetrating Oil</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -322,7 +321,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 							<h3>HIT Magnetic Drill Press</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -330,7 +329,7 @@
 				<div class="col-md-3">
 					<!-- product top -->
 					<div class="product-top">
-						<img src="images/diegrind.jpeg">
+						<img src="images/boschgrinder_display.jpg">
 						<div class="overlay-right">
 							<button type="button" class="btn btn-secondary" title="Quick Shop">
 								<i class="fa fa-eye"></i>
@@ -350,11 +349,11 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-alt"></i>
-							<h3>Buy a Box of Wheels</h3>
-							<h3>Get The Tool Free</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<h3>Buy a Box of Wheels Get The Tool Free</h3>
+							<a class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
+				
 			</div><!-- products end -->
 		</div> <!-- containter end -->
 	</section> <!-- on sale products end -->
@@ -373,7 +372,7 @@
 				<div class="col-md-3">
 					<!-- product top -->
 					<div class="product-top">
-						<img src="images/cmt_pro.jpg">
+						<img src="images/cmtTeflon_display.jpg">
 						<div class="overlay-right">
 							<button type="button" class="btn btn-secondary" title="Quick Shop">
 								<i class="fa fa-eye"></i>
@@ -394,7 +393,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 							<h3>CMT Teflon Coated Circular Blades</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -423,7 +422,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 							<h3>Bosch 18vlt 4pc Cordless Tool Kit</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -452,7 +451,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-0"></i>
 							<h3>Metal Cutting Diamond Wheels</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -481,7 +480,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-alt"></i>
 							<h3>Husqvarna K770 Gas Powered Saw Combo</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 			
@@ -570,10 +569,25 @@
 			<hr>
 			<p class="copyright">Website Created By Curtis Stephens. For Business Inqueries Contact rizerr@gmail.com</p>
 		</div><!-- container end -->
+
 	</section><!-- footer end -->
 
 	<!-- open and close side menu -->
 	<script>
+		const buttons = document.querySelectorAll('viewButton');
+		buttons.forEach(btn => {
+			btn.addEventListener('click', function(e) {
+
+				let x = e.clientX - e.target.offsetLeft;
+				let y = e.clientY - e.target.offsetTop;
+
+				let ripples = document.createElement('span');
+				ripples.style.left = x + 'px';
+				ripples.style.top = y + 'px';
+				btn.appendChild(ripples);
+			})
+		})
+
 		function openmenu()
 		{
 			document.getElementById("side-menu").style.display="block";
