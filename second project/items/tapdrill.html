@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tap & Drill Sets</title>
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/4f112d1706.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+	<!-- style -->
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<!-- firebase -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+	<script>
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  var firebaseConfig = {
+	    apiKey: "AIzaSyDAgPd7xqatK-zmwJizsDAfW6x7_SkoE7w",
+	    authDomain: "leftcoast-4cfc2.firebaseapp.com",
+	    databaseURL: "https://leftcoast-4cfc2.firebaseio.com",
+	    projectId: "leftcoast-4cfc2",
+	    storageBucket: "leftcoast-4cfc2.appspot.com",
+	    messagingSenderId: "526978566494",
+	    appId: "1:526978566494:web:6e191cc2141f84c2c6e7cf",
+	    measurementId: "G-DPT355PHZF"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	  const db = firebase.firestore();
+	  const auth = firebase.auth();
+
+	</script><!-- end firebase setup -->
+
+	<header>
+		<a href="../main.html" class="logo"><img src="../images/logo.jpeg"></a>
+		<ul>
+			<li class="logged-in"><a href="../cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="../contact.html">Contact</a></li>
+			<li class="logged-out"><a href="../account.html">Accounts</a></li>
+			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
+			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
+			<li><i class="fa fa-times" id="close-btn" onclick="closemenu()"></i></li>
+		</ul>
+	</header>
+	<section class="banner"></section>
+	<script type="text/javascript">
+		window.addEventListener("scroll", function(){
+			var header = document.querySelector("header");
+			header.classList.toggle("sticky", window.scrollY > 0);
+		})
+	</script>
+
+
+	<!-- logout button -->
+	<script>
+		$("#logout").click(function(){
+        firebase.auth().signOut().then(function() {
+        	loggedOut();
+      		}).catch(function(error) {
+        	// An error happened.
+      		});
+		});
+	</script>
+
+	<!-- nav side menu -->
+	<section class="header">
+	<div class="nav-side-menu" id="side-menu">
+  
+        <div class="menu-list">
+  
+            <ul id="menu-content" >
+
+            	<li data-toggle="collapse" data-target="#service" class="collapsed">
+                  <a href="#"><i class="fa fa-hand-holding-heart fa-lg"></i> On Sale <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="service">
+                  <li><a href="../specials.html">View Specials</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#sawblades" class="collapsed">
+                  <a href="#"><i class="fa fa-fan fa-lg"></i> Saw Blades <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="sawblades">
+                  <li><a href="../sawblades.html">All Blades</a></li>
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#bits" class="collapsed">
+                  <a href="#"><i class="fa fa-dot-circle fa-lg"></i> Drill Bits <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="bits">
+                  <li><a href="../wood_bits.html">Wood Drilling Bits</a></li>
+                  <li><a href="../metal_bits.html">Metal Drilling Bits</a></li>
+                  <li><a href="../concrete_bits.html">Concrete Drilling Bits</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#safety" class="collapsed">
+                  <a href="#"><i class="fa fa-hard-hat fa-lg"></i> Safety Items <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="safety">
+                  <li><a href="../general_safety.html">General Safety</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#electrical" class="collapsed">
+                  <a href="#"><i class="fa fa-plug fa-lg"></i> Electrical <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="electrical">
+                  <li><a href="../cords.html">Cords & Lights</a></li>
+                  <li><a href="../holesaw.html">Holesaws & Wingnuts</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#wheel" class="collapsed">
+                  <a href="#"><i class="fa fa-dharmachakra fa-lg"></i> Abrasives<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="wheel">
+                  <li><a href="../cutgrind.html">Cutting & Grinding</a></li>
+                  <li><a href="../sanding.html">Sanding Products</a></li>
+
+                </ul>
+
+                <li data-toggle="collapse" data-target="#diamond" class="collapsed">
+                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="diamond">
+                  <li><a href="../diamond.html">All Diamond Products</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#chem" class="collapsed">
+                  <a href="#"><i class="fa fa-oil-can fa-lg"></i> Chemicals <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="chem">
+                  <li><a href="../chemicals.html">All Chemicals & Accessories</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#handtools" class="collapsed">
+                  <a href="#"><i class="fa fa-wrench fa-lg"></i> Hand Tools <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="handtools">
+                  <li><a href="../powertools.html">Cordless & Power Tools</a></li>
+                  <li><a href="../wrenches.html">Wrenches</a></li>
+                  <li><a href="../sockets.html">Sockets</a></li>
+                  <li><a href="../threading.html">Extractors & Threaders</a></li>
+                  <li><a href="../pliers.html">Pliers & Clamps</a></li>
+                  <li><a href="../williams.html">Williams Tools</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#shop" class="collapsed">
+                  <a href="#"><i class="fa fa-car fa-lg"></i> Shop Tools <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="shop">
+                  <li><a href="../hydraulic.html">Jacks and Hydraulic</a></li>
+                  <li><a href="../pneumatic.html">Pneumatic Tools</a></li>
+                  <li><a href="../shoptools.html">Miscellaneous</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#expend" class="collapsed">
+                  <a href="#"><i class="fa fa-plus-square fa-lg"></i> Expendables <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="expend">
+                  <li><a href="../straps.html">Tarps, Straps, and Ties</a></li>
+                  <li><a href="../screwdrivers.html">Screwdrivers and Nutdrivers</a></li>
+                  <li><a href="../tape.html">Tapes</a></li>
+                </ul>
+
+            </ul>
+    	</div><!-- end menu -->
+	</div>
+	
+	<!-- Product -->
+	<section class="single-product">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div id="product-slider" class="carousel slide carousel-fade" data-ride="carousel">
+  						<div class="carousel-inner">
+    						<div class="carousel-item active">
+      							<img src="images/tapdrill_1.jpg" class="d-block w-100">
+    						</div>
+
+  						</div>
+  						<!-- controls -->
+		 				<a class="carousel-control-prev" href="#product-slider" role="button" data-slide="prev">
+    						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+   							<span class="sr-only">Previous</span>
+  						</a>
+  						<a class="carousel-control-next" href="#product-slider" role="button" data-slide="next">
+    						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+    						<span class="sr-only">Next</span>
+  						</a>
+					</div><!-- end slider -->
+				</div> <!-- end column -->
+
+				<div class="col-md-7">
+					
+					<h2>Tap & Drill Sets</h2>
+					<p>Stock Number: 1567</p>
+					
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+	
+
+					<p><b>Availability:</b> In Stock</p>
+					<p><b>Condition:</b> New</p>
+					<p><b>Brand:</b> NTI</p>
+					<p class="logged-out"><b>Log In Or Sign Up Today!</b><br>Click The Accounts Tab To Get Started!</p>
+
+					<button type="button" value="Tap & Die Sets" id="addCart" class="logged-in btn btn-primary">Add to Cart</button>
+
+				</div><!-- column end -->
+			</div><!-- end row -->
+		</div><!--end container -->
+	</section>
+
+	<!-- product description -->
+	<section class="product-description">
+		<div class="containter">
+			<h6>Product Description</h6>
+			<p class="text-capitalize">This is a super handy combination HSS tap and drill set. It organizes taps with the recommended twist drill sizes. They are ideal for tool cribs, machine shops and maintenance departments. Also, any farmer, logger, trucker, excavating contractor that runs heavy equipment will use something like this. The set comes in a Huot Index Box for storage purposes.  </p>
+
+			<hr>
+		</div>
+	</section>
+
+
+
+	<!---- webiste features ----->
+	<section class="website-features">
+		<div class="container">
+			<div class="row">
+				
+				<!-- satisfcation -->
+				<div class="col-md-3 feature-box">
+					<img src="../images/satisfaction.png">
+					<div class="feature-text">
+						<p><b>100% Satisfaction Guarantee.</b> We Pride Ourselves In Customer Satisfaction</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+				<!-- shipping -->
+				<div class="col-md-3 feature-box">
+					<img src="../images/shipping.png">
+					<div class="feature-text">
+						<p><b>Free Shipping</b> On Every Order Over $100</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+				<!-- returns -->
+				<div class="col-md-3 feature-box">
+					<img src="../images/returns.png">
+					<div class="feature-text">
+						<p><b>Free Returns</b> On Qualified Items Withtin 30 Days</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+				<!-- 30 day -->
+				<div class="col-md-3 feature-box">
+					<img src="../images/30day.png">
+					<div class="feature-text">
+						<p><b>30 Day Financing</b> Available On Qualified Accounts</p>
+					</div><!--- text end --->
+				</div><!-- column end -->
+
+			</div><!--- row end -->
+		</div><!-- containter end -->
+	</section><!--- website features end -->
+
+	<!-- footer -->
+	<section class="footer">
+		<div class="container text-center">
+			<div class="row">
+				
+				<!-- useful links -->
+				<div class="col-md-3">
+					<h1>Useful Links</h1>
+					<p>Privacy Policy</p>
+					<p>Return Policy</p>
+					<p>Terms of Use</p>
+				</div><!--- column end -->
+
+				<!-- copmpany links -->
+				<div class="col-md-3">
+					<h1>Company</h1>
+					<p>About Us</p>
+					<p>Contact Us</p>
+					<p>Affiliate</p>
+				</div><!--- column end -->
+
+				<!-- follow -->
+				<div class="col-md-3">
+					<h1>Follow Us On</h1>
+					<p><i class="fa fa-facebook-official"></i> Facebook</p>
+					<p><i class="fa fa-instagram"></i> Instagram</p>
+					<p><i class="fa fa-linkedin"></i> Linkedin</p>
+				</div><!--- column end -->
+
+				<!-- follow -->
+				<div class="col-md-3 footer-image">
+					<h1>Download App</h1>
+					<img src="../images/appsoon.png">
+				</div><!--- column end -->
+
+			</div><!-- row end -->
+
+			<hr>
+			<p class="copyright">Website Created By Curtis Stephens. For Business Inqueries Contact rizerr@gmail.com</p>
+		</div><!-- container end -->
+	</section><!-- footer end -->
+
+	<!-- open and close side menu -->
+	<script>
+	const itemAdd = document.querySelector("#addCart");
+
+
+	itemAdd.addEventListener("click", function() {
+	  	const itemToSave = itemAdd.value;
+	  	var user = firebase.auth().currentUser;
+	  	var stock = "1567";
+	  	console.log(itemToSave);
+		db.collection('users').doc(user.uid).collection('cart').add({
+  			name: itemToSave,
+  			stockNum: stock
+		});
+		Swal.fire('Item Was Added To The Cart!');
+	  });
+
+
+
+		function openmenu()
+		{
+			document.getElementById("side-menu").style.display="block";
+			document.getElementById("menu-btn").style.display="none";
+			document.getElementById("close-btn").style.display="block";
+		}
+		function closemenu()
+		{
+			document.getElementById("side-menu").style.display="none";
+			document.getElementById("menu-btn").style.display="block";
+			document.getElementById("close-btn").style.display="none";
+		}
+	</script> <!-- open ansd close side menu end -->
+	<!--- java -->
+	<script src="../app.js"></script>
+	<script src="../auth.js"></script>
+
+
+
+
+
+
+</body>
+</html>

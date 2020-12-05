@@ -51,8 +51,8 @@
 	<header>
 		<a href="../main.html" class="logo"><img src="../images/logo.jpeg"></a>
 		<ul>
-			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li class="logged-in"><a href="../cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="../contact.html">Contact</a></li>
 			<li class="logged-out"><a href="../account.html">Accounts</a></li>
 			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
 			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
@@ -238,8 +238,9 @@
 			<h6>Product Description</h6>
 			<p class="text-capitalize">This is a must have product for most of your construction companies using portable power. They are now required by OSHA on most construction job sites.
 			The initials GFCI stand for ground fault circuit interrupter. This product, unlike fuses or circuit breakers which protect electrical wiring, helps protect people from electrrical shock due to faulty appliances or ground faults (short circuits to the ground). This unit senses dangerous ground faults and interrupts power instanteously to help prevent serious injuries. 90 day warranty against defects in materials or workmanship.
-			This unit is U.L. listed, and comes with a 6’ SJT 14/3 cord. Specifications include:
-			-125 volt -60 hz -15 amps. -2 grounded outlets.
+			This unit is U.L. listed, and comes with a 6’ SJT 14/3 cord. 
+			<br><br>Specifications include:<br>
+			-125 volt -60 hz -15 amps. -2 grounded outlets.<br>
 			-Test and reset buttons</p>
 
 			<hr>
@@ -339,15 +340,14 @@
 	itemAdd.addEventListener("click", function() {
 	  	const itemToSave = itemAdd.value;
 	  	var user = firebase.auth().currentUser;
-	  	var image = "gfi_display.jpg";
+	  	var stock = "1032";
 	  	console.log(itemToSave);
 		db.collection('users').doc(user.uid).collection('cart').add({
   			name: itemToSave,
-  			image: image
+  			stockNum: stock
 		});
 		Swal.fire('Item Was Added To The Cart!');
 	  });
-
 
 
 		function openmenu()

@@ -49,7 +49,7 @@
 	<header>
 		<a href="main.html" class="logo"><img src="images/logo.jpeg"></a>
 		<ul>
-			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket cartIcon"></i>Cart</a></li>
 			<li><a href="contact.html">Contact</a></li>
 			<li class="logged-out"><a href="account.html">Accounts</a></li>
 			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
@@ -136,7 +136,7 @@
                 </ul>
 
                 <li data-toggle="collapse" data-target="#diamond" class="collapsed">
-                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond Wheels<span class="arrow"></span></a>
+                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="diamond">
                   <li><a href="diamond.html">All Diamond Products</a></li>
@@ -218,7 +218,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-half-o"></i>
 							<h3>60 Amp Plasma Cutter</h3>
-							<a href="daredevil.html"><button type="button" class="btn btn-outline-danger">View</button></a>
+							<a href="items/plasma.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -247,7 +247,7 @@
 						<i class="fa fa-star"></i>
 						
 							<h3>55 Amp Battery Charger</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/batterycharger.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -276,7 +276,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-half-o"></i>
 							<h3>20 Ton Air / Hydraulic Shop Press</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/shopPress.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -304,7 +304,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star-half-o"></i>
 							<h3>Parts Washer</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/partswasher.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -333,7 +333,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 							<h3>Tire Mount / Dismount Kit</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/tiremount.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -362,7 +362,7 @@
 						<i class="fa fa-star"></i>
 				
 							<h3>Slide Hammer Bead Breaker</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/tireBeadBreaker.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -391,7 +391,7 @@
 						<i class="fa fa-star"></i>
 		
 							<h3>5 Gallon Air Bead Seater</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/tireBeadSeater.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -420,7 +420,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 							<h3>Auto Rewind Hose Reels</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/hosereel.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -449,7 +449,7 @@
 						<i class="fa fa-star"></i>
 
 							<h3>Bench Grinders</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/benchgrind.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -478,7 +478,7 @@
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 							<h3>All Steel Bench Vices</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/benchvice.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -507,7 +507,7 @@
 						<i class="fa fa-star"></i>
 
 							<h3>Oxy Acetylene Kit</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/oxykit.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
@@ -536,38 +536,10 @@
 						<i class="fa fa-star"></i>
 
 							<h3>Solar Powered Welding Helmet</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
+							<a href="items/weldinghelmet.html" class="viewButton" href="">View</a>
 					</div> <!-- product bottom end -->
 				</div> <!-- column end -->
 
-								<!-- product 10 -->
-				<div class="col-md-3">
-					<!-- product top -->
-					<div class="product-top">
-						<img src="images/oildrain_display.jpg">
-						<div class="overlay-right">
-							<button type="button" class="btn btn-secondary" title="Quick Shop">
-								<i class="fa fa-eye"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Wishlist">
-								<i class="fa fa-heart-o"></i>
-							</button>
-							<button type="button" class="btn btn-secondary" title="Add to Cart">
-								<i class="fa fa-shopping-cart"></i>
-							</button>
-						</div>
-					</div><!-- product top end -->
-					<!-- product bottom -->
-					<div class="product-bottom text-center">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-
-							<h3>Oil Drain Containers</h3>
-							<button type="button" class="btn btn-outline-danger">View</button>
-					</div> <!-- product bottom end -->
-				</div> <!-- column end -->
 
 			</div><!-- products end -->
 		</div> <!-- containter end -->

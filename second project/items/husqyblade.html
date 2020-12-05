@@ -51,8 +51,8 @@
 	<header>
 		<a href="../main.html" class="logo"><img src="../images/logo.jpeg"></a>
 		<ul>
-			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li class="logged-in"><a href="../cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="../contact.html">Contact</a></li>
 			<li class="logged-out"><a href="../account.html">Accounts</a></li>
 			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
 			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
@@ -136,7 +136,7 @@
                 </ul>
 
                 <li data-toggle="collapse" data-target="#diamond" class="collapsed">
-                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond Wheels<span class="arrow"></span></a>
+                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="diamond">
                   <li><a href="../diamond.html">All Diamond Products</a></li>
@@ -235,7 +235,7 @@
 	<section class="product-description">
 		<div class="containter">
 			<h6>Product Description</h6>
-			<p class="text-capitalize">This is a blade used for fast cutting of a wide variety of materials on the first pass, such as cured concrete and brick. This all-purpose diamond blade has aggressive notched segments that grab and grind material for a rapid first cut.<br>
+			<p class="text-capitalize">This is a blade used for fast cutting of a wide variety of materials on the first pass, such as cured concrete and brick. This all-purpose diamond blade has aggressive notched segments that grab and grind material for a rapid first cut.<br><br>
 			-Used for fast cutting of a wide varierty of materials on the first pass, such as cured concrete and brick<br>
 			-Low active cutting surface results in reduced friction loss<br>
 			-Evenly distributed cutting edges and diamond crystals for best performance </p>
@@ -337,11 +337,11 @@
 	itemAdd.addEventListener("click", function() {
 	  	const itemToSave = itemAdd.value;
 	  	var user = firebase.auth().currentUser;
-	  	var image = "husqyblade_display.jpg";
+	  	var stock = "3941";
 	  	console.log(itemToSave);
 		db.collection('users').doc(user.uid).collection('cart').add({
   			name: itemToSave,
-  			image: image
+  			stockNum: stock
 		});
 		Swal.fire('Item Was Added To The Cart!');
 	  });

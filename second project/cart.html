@@ -77,57 +77,18 @@
 		});
 	</script>
 
-	<!-- cart items -->
-	<div class="small-container cart-page">
-		<table>
-			<tr>
-				<th>   Product</th>
-				<th>Quantity    </th>
-			</tr>
-			<!-- item one -->
-			<tr>
-				<td>
-					<div class="cart-info">
-						<img src="images/bosch_recip.jpeg">
-						<div>
-							<p>Bosch Recip</p>
-							<br>
-							<a href="">Remove</a>
-						</div>
-					</div>
-				</td>
-				<td><input type="number" value="1"></td>
-			</tr>
-			<!-- item two -->
-			<tr>
-				<td>
-					<div class="cart-info">
-						<img src="images/bosch_recip.jpeg">
-						<div>
-							<p>Bosch Recip</p>
-							<br>
-							<a href="">Remove</a>
-						</div>
-					</div>
-				</td>
-				<td><input type="number" value="1"></td>
-			</tr>
-			<!-- item three -->
-			<tr>
-				<td>
-					<div class="cart-info">
-						<img src="images/bosch_recip.jpeg">
-						<div>
-							<p>Bosch Recip</p>
-							<br>
-							<a href="">Remove</a>
-						</div>
-					</div>
-				</td>
-				<td><input type="number" value="1"></td>
-			</tr>
-		</table>
+
+	<div class="container cart-page text-center">
+		<h4 class="container text-center title-box-3">Cart</h4>
+
+		<ul id="cart-list" class="cartStyle" ></ul>
+
+		<a href="#" class="viewButton" href="">Submit Quote</a>
+
+
+		<h6 class="cart-page">Please note that every ordered placed through Left Coast is on an open account and must be verified over the phone with your salesman. After submitting your quote you will recieve a call from your salesman by then end of the next business day. <br>For immediate service call today at 951-781-3739</h6>
 	</div>
+
 
 
 
@@ -215,38 +176,70 @@
 
 	</section><!-- footer end -->
 
-	<!-- open and close side menu -->
-	<script>
-		const buttons = document.querySelectorAll('viewButton');
-		buttons.forEach(btn => {
-			btn.addEventListener('click', function(e) {
-
-				let x = e.clientX - e.target.offsetLeft;
-				let y = e.clientY - e.target.offsetTop;
-
-				let ripples = document.createElement('span');
-				ripples.style.left = x + 'px';
-				ripples.style.top = y + 'px';
-				btn.appendChild(ripples);
-			})
-		})
-
-		function openmenu()
-		{
-			document.getElementById("side-menu").style.display="block";
-			document.getElementById("menu-btn").style.display="none";
-			document.getElementById("close-btn").style.display="block";
-		}
-		function closemenu()
-		{
-			document.getElementById("side-menu").style.display="none";
-			document.getElementById("menu-btn").style.display="block";
-			document.getElementById("close-btn").style.display="none";
-		}
-	</script> <!-- open ansd close side menu end -->
 	<!--- java -->
 	<script src="app.js"></script>
-	<script src="auth.js"></script>
+	
+
+	<script>
+		firebase.auth().onAuthStateChanged(user =>{
+		  	if (user) {
+		  		console.log('User Logged In: ', user.uid);
+		  		setupUI(user);
+		  				const userID = user.uid;
+						db.collection('users').doc(user.uid).collection('cart').orderBy('stockNum').onSnapshot(snapshot => {
+						    let changes = snapshot.docChanges();
+						    changes.forEach(change => {
+						        console.log(change.doc.data());
+						        if(change.type == 'added'){
+						            renderCart(change.doc);
+						        } else if (change.type == 'removed'){
+						            let li = cartList.querySelector('[data-id=' + change.doc.id + ']');
+						            cartList.removeChild(li);
+						        }
+						    });
+						});
+		  	}
+		  	else{
+		  		console.log('User Logged Out');
+		  		setupUI();
+		  	}
+		});
+
+		const cartList = document.querySelector('#cart-list');
+
+// create element & render cafe
+function renderCart(doc){
+    let li = document.createElement('li');
+    let name = document.createElement('span');
+    let stock = document.createElement('span');
+    let cross = document.createElement('button');
+
+
+    li.setAttribute('data-id', doc.id);
+    name.textContent =  doc.data().name;
+    stock.textContent = "-" + doc.data().stockNum + "   ";
+    cross.textContent = 'Remove';
+
+    
+    li.appendChild(stock);
+    li.appendChild(name);
+    li.appendChild(cross);
+
+    cartList.appendChild(li);
+
+        // deleting data
+    cross.addEventListener('click', (e) => {
+        e.stopPropagation();
+        let id = e.target.parentElement.getAttribute('data-id');
+        var user = firebase.auth().currentUser;
+        console.log(user.uid);
+        db.collection('users').doc(user.uid).collection('cart').doc(id).delete();
+    });
+}
+
+
+
+	</script>
 
 
 

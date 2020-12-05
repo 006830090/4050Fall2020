@@ -51,8 +51,8 @@
 	<header>
 		<a href="../main.html" class="logo"><img src="../images/logo.jpeg"></a>
 		<ul>
-			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li class="logged-in"><a href="../cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="../contact.html">Contact</a></li>
 			<li class="logged-out"><a href="../account.html">Accounts</a></li>
 			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
 			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
@@ -237,7 +237,7 @@
 		<div class="containter">
 			<h6>Product Description</h6>
 			<p class="text-capitalize">This is a contractor grade adapter that turns a standard extension cord into a triple tap cord. It is manufactured to demanding specifications and is designed for heavy duty outdoor use.
-This product features a yellow double thick ultra-flexible Nuflex-2 jacket, and is U.L. and OSHA approved. It is rated at 15 amp and 125 volt for standard household current.</p>
+<br><br>This product features a yellow double thick ultra-flexible Nuflex-2 jacket, and is U.L. and OSHA approved. It is rated at 15 amp and 125 volt for standard household current.</p>
 
 			<hr>
 		</div>
@@ -336,11 +336,11 @@ This product features a yellow double thick ultra-flexible Nuflex-2 jacket, a
 	itemAdd.addEventListener("click", function() {
 	  	const itemToSave = itemAdd.value;
 	  	var user = firebase.auth().currentUser;
-	  	var image = "tripletap_display.jpg";
+	  	var stock = "1036";
 	  	console.log(itemToSave);
 		db.collection('users').doc(user.uid).collection('cart').add({
   			name: itemToSave,
-  			image: image
+  			stockNum: stock
 		});
 		Swal.fire('Item Was Added To The Cart!');
 	  });

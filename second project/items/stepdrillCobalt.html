@@ -51,8 +51,8 @@
 	<header>
 		<a href="../main.html" class="logo"><img src="../images/logo.jpeg"></a>
 		<ul>
-			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li class="logged-in"><a href="../cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="../contact.html">Contact</a></li>
 			<li class="logged-out"><a href="../account.html">Accounts</a></li>
 			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
 			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
@@ -136,7 +136,7 @@
                 </ul>
 
                 <li data-toggle="collapse" data-target="#diamond" class="collapsed">
-                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond Wheels<span class="arrow"></span></a>
+                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="diamond">
                   <li><a href="../diamond.html">All Diamond Products</a></li>
@@ -237,11 +237,12 @@
 	<section class="product-description">
 		<div class="containter">
 			<h6>Product Description</h6>
-			<p class="text-capitalize">This is a 5 piece set of step drills are ideal for electrical contractors, sheet metal workers, auto mechanics, and general contractors. (many users recognize these as Unibits). They are ideal for drilling steel, copper, brass, aluminum and other thin metals. Specifications:
-				• Black & Gold finish for professional look
-				• High speed steel with Cobalt coating for long life and durability
-				• Two Flutes, which automatically deburrs as you drill
-				• Tri-Flat shank for sure-grip
+			<p class="text-capitalize">This is a 5 piece set of step drills are ideal for electrical contractors, sheet metal workers, auto mechanics, and general contractors. (many users recognize these as Unibits). They are ideal for drilling steel, copper, brass, aluminum and other thin metals. 
+				<br><br>Specifications:<br>
+				• Black & Gold finish for professional look<br>
+				• High speed steel with Cobalt coating for long life and durability<br>
+				• Two Flutes, which automatically deburrs as you drill<br>
+				• Tri-Flat shank for sure-grip<br>
 				• Foam lined aluminum carrying case</p>
 
 			<hr>
@@ -341,11 +342,11 @@
 	itemAdd.addEventListener("click", function() {
 	  	const itemToSave = itemAdd.value;
 	  	var user = firebase.auth().currentUser;
-	  	var image = "stepcob_display.jpg";
+	  	var stock = "1573";
 	  	console.log(itemToSave);
 		db.collection('users').doc(user.uid).collection('cart').add({
   			name: itemToSave,
-  			image: image
+  			stockNum: stock
 		});
 		Swal.fire('Item Was Added To The Cart!');
 	  });

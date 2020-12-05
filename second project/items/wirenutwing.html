@@ -51,8 +51,8 @@
 	<header>
 		<a href="../main.html" class="logo"><img src="../images/logo.jpeg"></a>
 		<ul>
-			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li class="logged-in"><a href="../cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="../contact.html">Contact</a></li>
 			<li class="logged-out"><a href="../account.html">Accounts</a></li>
 			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
 			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
@@ -136,7 +136,7 @@
                 </ul>
 
                 <li data-toggle="collapse" data-target="#diamond" class="collapsed">
-                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond Wheels<span class="arrow"></span></a>
+                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="diamond">
                   <li><a href="../diamond.html">All Diamond Products</a></li>
@@ -236,8 +236,8 @@
 	<section class="product-description">
 		<div class="containter">
 			<h6>Product Description</h6>
-			<p class="text-capitalize">These are color coded twist-on winged wire connectors used to splice two or more wires togather without taping. They are mainly used by electrical contractors, but are also used by auto & truck repair shops, industrial maintenance shops etc.<br>
-			Each connector is color coded to industry standards for easy size selection. The winged design allows for greater leverage when attaching. They back off easily for re-use. With the winged connectors no pre-twisting or tools are necessary.<br>
+			<p class="text-capitalize">These are color coded twist-on winged wire connectors used to splice two or more wires togather without taping. They are mainly used by electrical contractors, but are also used by auto & truck repair shops, industrial maintenance shops etc.<br><br>
+			Each connector is color coded to industry standards for easy size selection. The winged design allows for greater leverage when attaching. They back off easily for re-use. With the winged connectors no pre-twisting or tools are necessary.<br><br>
 			These connectors feature a tough thermoplastic shell with a 600 volt rating. They are flame- retardant, non-porous, non-corrosive, and resistant to surface cracking and chemical action. They comply with Federal Specification W-5-610D, are UL 486C listed and CSA certified.</p>
 
 			<hr>
@@ -337,11 +337,11 @@
 	itemAdd.addEventListener("click", function() {
 	  	const itemToSave = itemAdd.value;
 	  	var user = firebase.auth().currentUser;
-	  	var image = "wirenutwing_display.jpg";
+	  	var stock = "3339";
 	  	console.log(itemToSave);
 		db.collection('users').doc(user.uid).collection('cart').add({
   			name: itemToSave,
-  			image: image
+  			stockNum: stock
 		});
 		Swal.fire('Item Was Added To The Cart!');
 	  });

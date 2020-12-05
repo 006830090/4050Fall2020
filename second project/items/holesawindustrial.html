@@ -51,8 +51,8 @@
 	<header>
 		<a href="../main.html" class="logo"><img src="../images/logo.jpeg"></a>
 		<ul>
-			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li class="logged-in"><a href="../cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="../contact.html">Contact</a></li>
 			<li class="logged-out"><a href="../account.html">Accounts</a></li>
 			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
 			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
@@ -136,7 +136,7 @@
                 </ul>
 
                 <li data-toggle="collapse" data-target="#diamond" class="collapsed">
-                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond Wheels<span class="arrow"></span></a>
+                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="diamond">
                   <li><a href="../diamond.html">All Diamond Products</a></li>
@@ -238,7 +238,7 @@
 	<section class="product-description">
 		<div class="containter">
 			<h6>Product Description</h6>
-			<p class="text-capitalize">This is a bi-metal holesaw kit for cutting larger diameter holes in wood, light metal, and nail embedded wood. This is a complete kit for the master craftsman. The saws themselves have a 4/6 variable tooth pattern for faster cuts. They have an extra deep 1-7/8” cut and can be used with most brands of mandrels on the market. Contains 15 bimetal holesaws. The sizes include 3/4”, 7/8”, 1-1/8”, 1-3/8”, 1-1/2”, 1-3/4”, 2”, 2-1/4”, 2-1/2”, 3”, 3-1/4”, 3-5/8”, 3-3/4”, 4-1/8”, and 4-1/2”. It also contains 2 mandrels, mandrel adapter, pilot drill, a 12” extension bar and a steel contractors case.</p>
+			<p class="text-capitalize">This is a bi-metal holesaw kit for cutting larger diameter holes in wood, light metal, and nail embedded wood. This is a complete kit for the master craftsman. The saws themselves have a 4/6 variable tooth pattern for faster cuts. They have an extra deep 1-7/8” cut and can be used with most brands of mandrels on the market. Contains 15 bimetal holesaws. <br><br>The sizes include 3/4”, 7/8”, 1-1/8”, 1-3/8”, 1-1/2”, 1-3/4”, 2”, 2-1/4”, 2-1/2”, 3”, 3-1/4”, 3-5/8”, 3-3/4”, 4-1/8”, and 4-1/2”. It also contains 2 mandrels, mandrel adapter, pilot drill, a 12” extension bar and a steel contractors case.</p>
 
 			<hr>
 		</div>
@@ -337,11 +337,11 @@
 	itemAdd.addEventListener("click", function() {
 	  	const itemToSave = itemAdd.value;
 	  	var user = firebase.auth().currentUser;
-	  	var image = "holesawindustrial_display.jpg";
+	  	var stock = "1125";
 	  	console.log(itemToSave);
 		db.collection('users').doc(user.uid).collection('cart').add({
   			name: itemToSave,
-  			image: image
+  			stockNum: stock
 		});
 		Swal.fire('Item Was Added To The Cart!');
 	  });

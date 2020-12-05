@@ -51,8 +51,8 @@
 	<header>
 		<a href="../main.html" class="logo"><img src="../images/logo.jpeg"></a>
 		<ul>
-			<li class="logged-in"><a href="cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li class="logged-in"><a href="../cart.html"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+			<li><a href="../contact.html">Contact</a></li>
 			<li class="logged-out"><a href="../account.html">Accounts</a></li>
 			<li class="logged-in"><a href="#" id="logout">Logout</a></li>
 			<li><i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i></li>
@@ -136,7 +136,7 @@
                 </ul>
 
                 <li data-toggle="collapse" data-target="#diamond" class="collapsed">
-                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond Wheels<span class="arrow"></span></a>
+                  <a href="#"><i class="fa fa-gem fa-lg"></i> Diamond<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="diamond">
                   <li><a href="../diamond.html">All Diamond Products</a></li>
@@ -235,7 +235,7 @@
 	<section class="product-description">
 		<div class="containter">
 			<h6>Product Description</h6>
-			<p class="text-capitalize">This is a hot new expendable item that your customers will love and buy over and over again. They are specifically designed for clean-up of industrial spills and leaks. They are constructed of medium weight twin-bonded layers of meltblown polypropylene with ultra sonic (dimpled) weld points for increased strength and durability. The pads are 15” x 17” and come in a plastic bag of 100 pads. They would be used by oil- field contractors, mechanics, heavy equipment operators, marine repair shops, auto repair shops, plumbing contractors etc.<br>
+			<p class="text-capitalize">This is a hot new expendable item that your customers will love and buy over and over again. They are specifically designed for clean-up of industrial spills and leaks. They are constructed of medium weight twin-bonded layers of meltblown polypropylene with ultra sonic (dimpled) weld points for increased strength and durability. The pads are 15” x 17” and come in a plastic bag of 100 pads. They would be used by oil- field contractors, mechanics, heavy equipment operators, marine repair shops, auto repair shops, plumbing contractors etc.<br><br>
 			These pads will absorb up to 25 times their weight in liquids. A pack of 100 will absorb up to 24 lbs of fluids. These pads are not reusable. The absorbed liquid may be squeezed out for recycling purposes, but the pad should be disposed of properly. </p>
 
 			<hr>
@@ -335,15 +335,14 @@
 	itemAdd.addEventListener("click", function() {
 	  	const itemToSave = itemAdd.value;
 	  	var user = firebase.auth().currentUser;
-	  	var image = "sorbentpad_display.jpg";
+	  	var stock = "6701";
 	  	console.log(itemToSave);
 		db.collection('users').doc(user.uid).collection('cart').add({
   			name: itemToSave,
-  			image: image
+  			stockNum: stock
 		});
 		Swal.fire('Item Was Added To The Cart!');
 	  });
-
 
 
 		function openmenu()
